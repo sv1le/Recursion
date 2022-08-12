@@ -1,0 +1,101 @@
+// how to print ur name "n" times with recursion
+
+
+void solve(ll i ,ll n) {
+    if (i > n) {
+        return;
+    }
+    cout << "Sid" << endl;
+    i++;
+    solve(i, n);
+}
+
+int main() {
+    ll n;
+    cin >> n;
+    solve(1, n);
+}
+
+// or u can also do
+
+ll cnt = 0;
+void solve() {
+    if (cnt == 3) {
+        return;
+    }
+    cout << cnt << "\n";
+    cnt++;
+    solve();
+}
+
+int main() {
+    solve();
+}
+
+
+//print 1 to n using recursion
+
+void solve(ll i , ll n) {
+    if (i > n) {
+        return;
+    }
+    cout << i << "\n";
+    solve(i + 1, n);
+}
+
+int main() {
+    ll n;
+    cin >> n;
+    solve(1, n);
+}
+
+ 
+//print n to 1 in reverse using recursion
+void solve(ll n) {
+    if (n <= 0) {
+        return;
+    }
+    else {
+        cout << n << "\n";
+        n--;
+        solve(n);
+    }
+}
+
+int main() {
+    ll n;
+    cin >> n;
+    solve(n);
+}
+
+///paramterised function : -
+
+void solve(ll i, ll sum) {
+    if (i < 1) {
+        cout << sum;
+        return;
+    }
+    solve(i - 1, sum + i);
+}
+
+int main() {
+    ll n;
+    cin >> n;
+    solve(n, 0);
+}
+
+///functional function : - 
+void solve(ll n) {
+    if (n == 0){
+        return 0;
+    }
+    else{
+        n + solve(n - 1);
+    }
+}
+
+int main() {
+    ll n;
+    cin >> n;
+    solve(n);
+}
