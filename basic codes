@@ -99,3 +99,146 @@ int main() {
     cin >> n;
     solve(n);
 }
+
+
+
+
+// to check if the array is sorted and return true or false according to it
+
+bool isSorted(ll arr[], ll n) {
+    if ( n == 0 || n == 1) {
+        return true;
+    }
+    if (arr[0] > arr[1]) {
+        return false;
+    }
+    else {
+        bool ans = isSorted(arr + 1, n - 1);
+        return  ans;    
+    }
+}
+
+int main() {
+    ll n;
+    cin >> n;
+    ll arr[n];
+    FOR(i, n) {
+        cin >> arr[i];
+    }
+    bool sort = isSorted(arr,n);
+    if (sort)
+    {
+        cout << "sorted";
+    }
+    else{
+        cout << "nt sorted";
+    }
+
+}
+
+
+///to find the sum of array using recursion
+
+
+int sum(ll *arr, ll n) {
+    if (n == 0) {
+        return 0;
+    }
+    if (n == 1) {
+        return arr[0];
+    }
+    ll remain = sum(arr + 1, n - 1);
+    ll ans = arr[0] + remain;
+    return ans;
+
+}
+
+int main() {
+    ll n;
+    cin >> n;
+    ll arr[n];
+    FOR(i, n) {
+        cin >> arr[i];
+    }
+    ll final = sum(arr,n);
+    cout << final ;
+
+
+}
+
+
+/// using linear search,find a alement in array
+
+
+bool search(ll arr[], ll n , ll k) {
+    if (n == 0) {
+        return false;
+    }
+    if (arr[0] == k)
+    {
+        return true;
+    }
+    else {
+        bool remain = search(arr + 1, n - 1, k);
+        return remain;
+    }
+
+}
+
+int main() {
+    ll n;
+    cin >> n;
+    ll arr[n];
+    FOR(i, n) {
+        cin >> arr[i];
+    }
+    ll k;
+    cin >> k;
+    bool ans = search(arr, n, k);
+    if (ans) {
+        cout << "element found";
+    }
+    else {
+        cout << "nt found";
+    }
+}
+
+
+/// using binary search,find a alement in array
+
+bool binarySearch(ll arr*, ll s , ll e, ll k) {
+    if (s > e) {
+        return false;
+    }
+    ll mid  = (s + e) >> 1;
+    if (arr[mid] == k) {
+        return true;
+    }
+
+    if (arr[mid] < k)
+    {
+        return binarySearch(arr, mid + 1, e, k);
+    }
+    else {
+        return binarySearch(arr, s, mid - 1, k);
+    }
+}
+
+int main() {
+    ll n;
+    cin >> n;
+    ll arr[n];
+    FOR(i, n) {
+        cin >> arr[i];
+    }
+    ll k;
+    cin >> k;
+    if (binarySearch(arr, 0, (n - 1), k)) {
+        cout << "element PRESENT";
+    }
+    else {
+        cout << "nt PRESENT";
+    }
+
+}
+    
