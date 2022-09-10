@@ -1,19 +1,21 @@
 // how to print ur name "n" times with recursion
 
 
-void solve(ll i ,ll n) {
+void solve(ll i, ll n, string s) {
     if (i > n) {
         return;
     }
-    cout << "Sid" << endl;
+    cout << s << "\n";
     i++;
-    solve(i, n);
+    solve(i, n, s);
+
 }
 
 int main() {
     ll n;
-    cin >> n;
-    solve(1, n);
+    string str;
+    cin >> n >> str;
+    solve(1, n, str);
 }
 
 // or u can also do
